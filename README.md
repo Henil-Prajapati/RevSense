@@ -121,7 +121,7 @@
 
 ### 1. Clone the Repository
 ```sh
-git clone https://github.com/VedantPancholi/RevSense.git
+git clone https://github.com/Henil-Prajapati/RevSense.git
 cd RevSense
 ```
 
@@ -160,22 +160,5 @@ The backend API will be available at [http://localhost:8000](http://localhost:80
 - The FastAPI backend endpoints will be available at [http://localhost:8000](http://localhost:8000).
 
 ---
-
-
-## 📫 Contact
-
-If you're a company looking to build intelligent feedback systems, or a team interested in using RevSense — feel free to connect.
-
-> Vedant Pancholi
-> [[LinkedIn](https://www.linkedin.com/in/vedantpancholi/)] • [[GitHub](https://github.com/VedantPancholi)]
-
-> Mansi Thakkar
-> [[LinkedIn](https://www.linkedin.com/in/mansi-thakkar11/)] • [[GitHub](https://github.com/Mansi111000)]
-
-> Sachin Parmar
-> [[LinkedIn](https://www.linkedin.com/in/parmarsachin7123/)] • [[GitHub](https://github.com/Sachin7123)]
-
-> Henil Prajapati
-> [[LinkedIn](https://www.linkedin.com/in/henil-prajapati14/)] • [[GitHub](https://github.com/Henil-Prajapati)]
 
 ---
