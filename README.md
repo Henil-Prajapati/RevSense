@@ -19,16 +19,99 @@
 
 ---
 
+## ✅ Methodology & Workflow: Point-wise Explanation
+
+1. **🕒 Daily Review Scraping**  
+   - A **cron job runs every night** to scrape reviews automatically from platforms like Twitter, Play Store, App Store, and MouthShut.
+
+2. **🧹 Review Preprocessing**  
+   - Reviews are cleaned using:
+     - Tokenization  
+     - Stopword removal (using **spaCy**)  
+     - Lowercasing  
+     - Removing punctuation
+
+3. **🧠 Embedding Generation**  
+   - Preprocessed text is passed to **Sentence-BERT** (`nlptown/bert-base-multilingual-uncased-sentiment`)  
+   - This generates **dense semantic vectors (embeddings)** for each review
+
+4. **🧭 Hierarchical Category Classification**  
+   - We use **cosine similarity** between review embedding and category embeddings  
+   - Reviews are classified up to **5 levels of category hierarchy**  
+   - Total of **169 unique leaf categories** (e.g., App crash, Delivery delay, Taste quality)
+
+5. **🔢 Category Count & Tracking**  
+   - We **count reviews per category**, helping to identify which issues occur most frequently
+
+6. **📊 Sentiment Analysis**  
+   - Using BERT model to label reviews as:
+     - Very Negative  
+     - Negative  
+     - Neutral  
+     - Positive  
+     - Very Positive
+
+7. **📝 Summary Generation**  
+   - For each **category**, a **summary** of the reviews is created  
+   - Helps in quickly understanding the nature of feedback
+
+8. **🧩 Chunking for LLM Processing**  
+   - The summaries are **divided into chunks** before passing to **Gemini LLM**  
+   - This helps manage **token size limits** and speeds up **processing time**
+
+9. **📈 Insight Aggregation & Visualization**  
+   - Insights are grouped by **category and sentiment**  
+   - Displayed on a dashboard for **stakeholders** to interpret and act on
+
+---
+
 ## 🔗 Tech Stack
 
-- **Frontend**: Next.js 15, React 19, TypeScript, Tailwind CSS
-- **Backend**: FastAPI, Python 3.8+
-- **AI/ML**: spaCy, Sentence Transformers, HuggingFace Transformers, BERT
-- **Database**: Redis
-- **LLM**: Google Gemini
-- **Authentication**: Clerk
-- **File Storage**: EdgeStore
-- **Charts**: Chart.js, Recharts
+- **Languages**: Python, Bash (cron)
+- **Frameworks**: FastAPI
+- **Libraries**: spaCy, Sentence Transformers, HuggingFace Transformers, Redis-py, Pandas
+- **LLMs**: Gemini
+- **Storage**: Redis
+- **DevOps**: Cron, GitHub
+- **Deployment Ready**: REST APIs for front-end consumption
+
+---
+
+## 🧠 Sample Insights Output
+
+- 🎯 Categories with highest volume and polarity  
+- ⚠️ Emerging issues and customer pain-points  
+- 🔍 Root cause analysis and customer intent  
+- 📉 Predicted business impact based on review sentiment trends
+
+---
+
+## 💼 Use Cases
+
+- **Product Teams** → Understand feature-level sentiment and usability bottlenecks  
+- **Marketing Teams** → Gauge customer satisfaction and campaign resonance  
+- **Customer Support** → Detect pain points before escalation  
+- **HR/People Ops** → Analyze employee reviews from platforms like AmbitionBox
+
+---
+
+## 📌 Future Enhancements
+
+- ✅ Multilingual support for global review processing  
+- 🔗 CRM integration for real-time alerting  
+- 📲 Expand to more review platforms (e.g., YouTube comments, Instagram DMs, etc.)
+
+---
+
+## 🖼️ Example Output & Results
+
+![WhatsApp Image 2025-04-11 at 15 35 42_93ce7db0](https://github.com/user-attachments/assets/5270997a-e1ff-4685-a258-cb5fe9b9556a)
+![WhatsApp Image 2025-04-11 at 15 35 41_64157dc2](https://github.com/user-attachments/assets/9aab7848-23f8-473a-a66a-8a29bcf7e35c)
+![WhatsApp Image 2025-04-11 at 15 35 41_2149c581](https://github.com/user-attachments/assets/1c2ecc9b-b42f-423f-a67e-21c13b12db6f)
+![WhatsApp Image 2025-04-11 at 15 42 33_238f8a1a](https://github.com/user-attachments/assets/6e4f7829-7cb7-43a9-b60b-a4bbdfca7e6c)
+
+- API Response...
+![image](https://github.com/user-attachments/assets/0e8f3e67-fed2-4e42-be66-acca702207aa)
 
 ---
 
